@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo SaaS</title>
+</head>
+<body style="font-family: Arial, sans-serif; line-height: 1.6; max-width: 800px; margin: auto; padding: 20px;">
+
+<h1> Bienvenue sur TodoNow</h1>
+<p> TodoNow est un SaaS de gestion de tâches simple et efficace qui t’aide à libérer ta charge mentale et à passer à l’action sans stress. Pensé pour éliminer la complexité inutile, il te permet de noter rapidement tes tâches, de les voir clairement et de savoir exactement quoi faire, au bon moment.
+Que tu sois étudiant, entrepreneur ou salarié, TodoNow t’offre une méthode claire et minimaliste pour organiser l’essentiel, éviter l’accumulation mentale et avancer concrètement chaque jour, sans te perdre dans des systèmes compliqués.</p>
+<p>Prêt à noter vos tâches ?</p>
+
+<div style="text-align: center; margin-top: 30px;">
+<!-- BOUTON PAIEMENT -->
+<button id="payBtn"
+    style="background-color:#27AE60;color:white;padding:15px 25px;
+    font-size:18px;border:none;border-radius:5px;cursor:pointer;">
+     Débloquer le SaaS (Paiement unique)
+</button>
+
+<br><br>
+
+<!-- ACCÈS AU SAAS (CACHÉ AVANT PAIEMENT) -->
+<a id="saasLink"
+   href="https://joshiiro.github.io/saas/login"
+   style="display:none;background-color:#2E86DE;color:white;
+   padding:15px 25px;text-decoration:none;font-size:18px;border-radius:5px;">
+   ➕ Ajouter une tâche
+</a>
+
+<script>
+// Vérifie si l'utilisateur a payé
+const params = new URLSearchParams(window.location.search);
+const paid = params.get("paid");
+
+// Bouton paiement → Stripe
+document.getElementById("payBtn").onclick = function () {
+    window.location.href = "https://buy.stripe.com/28E00kbSX3L964w7QVafS08";
+};
+
+// Si paiement validé
+if (paid === "true") {
+    document.getElementById("payBtn").style.display = "none";
+    document.getElementById("saasLink").style.display = "inline-block";
+}
+</script>
+
+</body>
+</html>
